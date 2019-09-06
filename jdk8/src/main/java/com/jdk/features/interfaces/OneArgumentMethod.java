@@ -1,5 +1,5 @@
 package com.jdk.features.interfaces;
 
-public interface LambdaSyntax {
+public interface OneArgumentMethod {
 	public Integer doSomeThing(Integer arg);
 }

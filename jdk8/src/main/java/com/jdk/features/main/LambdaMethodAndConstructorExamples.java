@@ -10,13 +10,14 @@ import com.jdk.features.interfaces.ConstructorRefInterface;
 import com.jdk.features.interfaces.ConstructorRefInterface2;
 import com.jdk.features.interfaces.ConstructorRefInterface3;
 
-public class LambdaBasicExamples {
+public class LambdaMethodAndConstructorExamples {
 
 	public static void main(String[] args) {
 		
 		//lambdaExpressions();
+		lambdaExpressionVsAnonymousClass();
 		//instanceMethodReference();
-		methodAndConstructorRefDemo();
+		//methodAndConstructorRefDemo();
 	}
 
 	
@@ -87,6 +88,41 @@ public class LambdaBasicExamples {
 		
 	}
 	
+	
+	public static void lambdaExpressionVsAnonymousClass() {
+		
+		/*
+		 * Lambda Expression usage is short, terse and functional compare to use of
+		 * anonymouse class method overriding. You can see the difference in following
+		 * example. In case of lambda expression, you do not need to use new operator 
+		 * followed by interface/class name. no need to write sub class body, no need to method overriding 
+		 * code with method signature, returned type. rather in lambda way, you use perenthesis for args-list 
+		 * without their type declartation because arg-list type decleration is optional and then you use -> operator to attach operation 
+		 * to lambda expression. If your lambda body contains one line of code then, you are not 
+		 * required to write return statement enclosed in braces rather we specify
+		 * operation only. 
+		 */
+		
+		
+		//Anonymous class
+		LambdaBasic lambdaBasic = new LambdaBasic() {
+			
+			@Override
+			public Integer apply(Integer arg1, Integer arg2) {
+				return arg1 + arg2;
+			}
+		};
+		
+		System.out.println("Same Implentation Using Anonymous class but verbose: " + lambdaBasic.apply(10, 10));
+		
+		
+		//Lambda expression alternative to anonymous class
+		lambdaBasic = (arg1, arg2) -> arg1 + arg2;
+				
+		System.out.println("Same Implentation Using Lambda Expression that functional and short: " + lambdaBasic.apply(10, 10));
+				
+		
+	}
 	
 	public static void instanceMethodReference() {
 		
@@ -210,4 +246,5 @@ public class LambdaBasicExamples {
 		instanceOfExampleClass = (ExampleClassOfMethodAndConstructorRef) constructorRefInterface3.refMethod("Constructor is refernecd by abstract method of ConstructorRefInterface3 which name is refMethod. Its returned type is super type of constructor class");
 		
 	}
+	
 }
