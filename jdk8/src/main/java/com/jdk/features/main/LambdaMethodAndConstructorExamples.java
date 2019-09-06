@@ -3,8 +3,8 @@ package com.jdk.features.main;
 import com.jdk.features.classes.Calculator;
 import com.jdk.features.classes.ExampleClassOfMethodAndConstructorRef;
 import com.jdk.features.interfaces.LambdaBasic;
-import com.jdk.features.interfaces.LambdaSyntax;
-import com.jdk.features.interfaces.LambdaSyntax2;
+import com.jdk.features.interfaces.OneArgumentMethod;
+import com.jdk.features.interfaces.YouCanUsePrimitiveInArgListOfLambda;
 import com.jdk.features.interfaces.MethodRefInterface;
 import com.jdk.features.interfaces.ConstructorRefInterface;
 import com.jdk.features.interfaces.ConstructorRefInterface2;
@@ -171,43 +171,43 @@ public class LambdaMethodAndConstructorExamples {
 	}
 	
 	
-	public static void lambdaSyntaxDemo() {
+	public static void OneArgumentMethodDemo() {
 		
 		String title = "";
-		LambdaSyntax lambdaSyntax = x->10*10;
-		System.out.println(title + "9*9 : " + lambdaSyntax.doSomeThing(9));
+		OneArgumentMethod OneArgumentMethod = x->10*10;
+		System.out.println(title + "9*9 : " + OneArgumentMethod.doSomeThing(9));
 		
-		lambdaSyntax = (x)->9+9;
-		System.out.println(title + "9+9: " + lambdaSyntax.doSomeThing(9));
+		OneArgumentMethod = (x)->9+9;
+		System.out.println(title + "9+9: " + OneArgumentMethod.doSomeThing(9));
 		
-		lambdaSyntax = (Integer x)->9/9;
-		System.out.println(title + "9/9: " + lambdaSyntax.doSomeThing(9));
+		OneArgumentMethod = (Integer x)->9/9;
+		System.out.println(title + "9/9: " + OneArgumentMethod.doSomeThing(9));
 		
-		lambdaSyntax = (Integer x)->{return 9-9;};
-		System.out.println(title + "9-9: " + lambdaSyntax.doSomeThing(9));
+		OneArgumentMethod = (Integer x)->{return 9-9;};
+		System.out.println(title + "9-9: " + OneArgumentMethod.doSomeThing(9));
 		
-		lambdaSyntax =  x->{return 9*9*9/3;};
-		System.out.println(title + "9*9*9/3: " + lambdaSyntax.doSomeThing(9));
+		OneArgumentMethod =  x->{return 9*9*9/3;};
+		System.out.println(title + "9*9*9/3: " + OneArgumentMethod.doSomeThing(9));
 		
 		
 		/*
 		 * Do not count on compatibility of primitive and wrapper type with respect to argument list of lambda expression. If argument type of abstract method of 
 		 * functional interface is wrapper type then  corresponding primitive type will be invalid in lambda argument list or visa versa
 		 * 
-		 * lambdaSyntax =  (int x) -> {return 9*9*9/3;};
-		 * System.out.println(title + "9*9*9/3: " + lambdaSyntax.doSomeThing(9));
+		 * OneArgumentMethod =  (int x) -> {return 9*9*9/3;};
+		 * System.out.println(title + "9*9*9/3: " + OneArgumentMethod.doSomeThing(9));
 		 */
 		
-		LambdaSyntax2 lambdaSyntax2 = (int x)->{return 9*9*9;};
-		System.out.println(title + "9*9*9: " + lambdaSyntax2.youCanUsePrimitive(9));
+		YouCanUsePrimitiveInArgListOfLambda YouCanUsePrimitiveInArgListOfLambda = (int x)->{return 9*9*9;};
+		System.out.println(title + "9*9*9: " + YouCanUsePrimitiveInArgListOfLambda.youCanUsePrimitive(9));
 		
 		
 		/*
 		 * Do not count on compatibility of primitive and wrapper type with respect to argument list of lambda expression. If argument type of abstract method of 
 		 * functional interface is primitive type then  corresponding wrapper type will be invalid in lambda argument list or visa versa
 		 * 
-		 * lambdaSyntax2 = (Integer x)->{return 9*9*9;}; System.out.println(title +
-		 * "9*9*9: " + lambdaSyntax2.youCanUsePrimitive(9));
+		 * YouCanUsePrimitiveInArgListOfLambda = (Integer x)->{return 9*9*9;}; System.out.println(title +
+		 * "9*9*9: " + YouCanUsePrimitiveInArgListOfLambda.youCanUsePrimitive(9));
 		 */ 
 		
 	}
